@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QIQO.Pages.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
+using QIQO.Pages.Data.Interfaces;
+using QIQO.Pages.Data.Repositories;
 
 namespace QIQO.Pages
 {
@@ -21,6 +21,8 @@ namespace QIQO.Pages
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ProductContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductManagement")));
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddMvc();
         }
 
