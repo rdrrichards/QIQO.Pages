@@ -24,7 +24,7 @@ namespace QIQO.Pages.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _productContext.Products.ToListAsync();
+            return await _productContext.Products.Include("ProductType").ToListAsync();
         }
 
         public async Task<Product> GetByIDAsync(Guid Id)

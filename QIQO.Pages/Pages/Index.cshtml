@@ -20,6 +20,9 @@
             <th>
                 Product Description
             </th>
+            <th>
+                Product Type
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,6 +38,9 @@
                 </td>
                 <td>
                     @item.ProductDescShort
+                </td>
+                <td>
+                    @item.ProductType.ProductTypeName
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
