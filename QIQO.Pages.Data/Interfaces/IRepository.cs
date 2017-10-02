@@ -10,9 +10,9 @@ namespace QIQO.Pages.Data.Interfaces
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIDAsync(Guid Id);
-        void Insert(T entity);
-        void Delete(Guid Id);
+        Task InsertAsync(T entity);
+        Task DeleteAsync(Guid Id);
         void Update(T entity);
-        void Save();
+        Task SaveAsync();
     }
 }

@@ -16,7 +16,7 @@ namespace QIQO.Pages.Data.Repositories
         {
             _productContext = productContext;
         }
-        public async void Delete(Guid Id)
+        public async Task DeleteAsync(Guid Id)
         {
             var product = await _productContext.Products.FindAsync(Id);
             _productContext.Products.Remove(product);
@@ -32,14 +32,14 @@ namespace QIQO.Pages.Data.Repositories
             return await _productContext.Products.FindAsync(Id);
         }
 
-        public async void Insert(Product entity)
+        public async Task InsertAsync(Product entity)
         {
             await _productContext.Products.AddAsync(entity);
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            _productContext.SaveChangesAsync();
+            await _productContext.SaveChangesAsync();
         }
 
         public void Update(Product entity)
