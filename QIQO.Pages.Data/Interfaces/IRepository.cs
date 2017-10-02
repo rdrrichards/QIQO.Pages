@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace QIQO.Pages.Data.Interfaces
 {
-    public interface IRepository { }
+    public interface IRepository : IDisposable { }
 
-    public interface IRepository<T>
+    public interface IRepository<T> : IRepository
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIDAsync(Guid Id);

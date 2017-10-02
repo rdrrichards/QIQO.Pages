@@ -21,7 +21,7 @@ namespace QIQO.Pages.Data.Repositories
             var product = await _productContext.Products.FindAsync(Id);
             _productContext.Products.Remove(product);
         }
-
+        
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             return await _productContext.Products.Include("ProductType").ToListAsync();
@@ -46,5 +46,22 @@ namespace QIQO.Pages.Data.Repositories
         {
             _productContext.Entry(entity).State = EntityState.Modified;
         }
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+                if (disposing)
+                    _productContext.Dispose();
+
+            disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
     }
 }

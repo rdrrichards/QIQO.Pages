@@ -5,39 +5,36 @@
 }
 
 <div>
-    @Model.Products.ToString()
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Product Code
-            </th>
-            <th>
-                Product Name
-            </th>
-            <th>
-                Product Description
-            </th>
-            <th>
-                Product Type
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Products)
-        {
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <td>
-                    @item.ProductCode
-                </td>
-                <td>
-                    @item.ProductName
-                </td>
-                <td>
-                    @item.ProductDescShort
+                <th>
+                    Product Code
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Product Description
+                </th>
+                <th>
+                    Product Type
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>
+                        @item.ProductCode
+                    </td>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.ProductDescLong
                 </td>
                 <td>
                     @item.ProductType.ProductTypeName
@@ -48,6 +45,7 @@
                     <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>

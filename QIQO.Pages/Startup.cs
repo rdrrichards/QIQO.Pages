@@ -22,7 +22,7 @@ namespace QIQO.Pages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProductContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductManagement")));
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddMvc();
         }
 
