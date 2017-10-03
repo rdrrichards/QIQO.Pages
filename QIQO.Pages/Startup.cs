@@ -23,6 +23,7 @@ namespace QIQO.Pages
         {
             services.AddDbContext<ProductContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductManagement")));
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
             services.AddMvc();
         }
 

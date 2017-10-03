@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace QIQO.Pages.Data.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : RepositoryBase, IProductRepository
     {
         private readonly ProductContext _productContext;
 
-        public ProductRepository(ProductContext productContext)
+        public ProductRepository(ProductContext productContext) : base(productContext)
         {
             _productContext = productContext;
         }
@@ -46,22 +46,5 @@ namespace QIQO.Pages.Data.Repositories
         {
             _productContext.Entry(entity).State = EntityState.Modified;
         }
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-                if (disposing)
-                    _productContext.Dispose();
-
-            disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
     }
 }

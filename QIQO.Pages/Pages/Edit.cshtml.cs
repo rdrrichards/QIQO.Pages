@@ -14,17 +14,17 @@ namespace QIQO.Pages.Pages
     public class EditModel : PageModel
     {
         private readonly IProductRepository _productRepository;
+        private readonly IProductTypeRepository _productTypeRepository;
 
-        public EditModel(IProductRepository productRepository)
+        public EditModel(IProductRepository productRepository, IProductTypeRepository productTypeRepository)
         {
             _productRepository = productRepository;
+            _productTypeRepository = productTypeRepository;
         }
         public async Task OnGetAsync(Guid id)
         {
             Product = await _productRepository.GetByIDAsync(id);
-            ProductTypes = _productRepository.GetAllAsync().Result
-                .Select(x => x.ProductType)
-                .Distinct()
+            ProductTypes = _productTypeRepository.GetAllAsync().Result
                 .Select(i => new SelectListItem { Value = i.ProductTypeId.ToString(), Text = i.ProductTypeName })
                 .ToList();
         }
