@@ -39,7 +39,10 @@ namespace QIQO.Pages.Data.Entities
         [MaxLength(30)]
         public string UpdatedUserId { get; set; }
 
+        [Display(Name = "Product Type")]
         public ProductType ProductType { get; set; }
+
+        [Display(Name = "Product Type")]
         public Guid ProductTypeId { get; set; }
     }
 }
