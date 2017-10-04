@@ -1,25 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace QIQO.Pages.Data.Repositories
 {
     public class RepositoryBase
     {
-        protected bool disposed = false;
-        protected DbContext Context { get; set; }
+        private bool disposed = false;
+        private readonly DbContext _context;
 
         public RepositoryBase(DbContext context)
         {
-            Context = context;
+            _context = context;
         }
 
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
                 if (disposing)
-                    Context.Dispose();
+                    _context.Dispose();
 
             disposed = true;
         }

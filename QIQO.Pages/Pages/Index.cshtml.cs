@@ -2,7 +2,6 @@
 using QIQO.Pages.Data.Entities;
 using QIQO.Pages.Data.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace QIQO.Pages.Pages

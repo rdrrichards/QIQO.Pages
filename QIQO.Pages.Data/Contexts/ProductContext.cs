@@ -1,16 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QIQO.Pages.Data.Entities;
-using System;
-using System.Threading;
 
 namespace QIQO.Pages.Data.Contexts
 {
     public class ProductContext : DbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options) : base(options)
-        {
-
-        }
+        public ProductContext(DbContextOptions<ProductContext> options) : base(options) { }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
 
