@@ -37,9 +37,7 @@ namespace QIQO.Pages.Pages
         {
             if (!ModelState.IsValid)
                 return Page();
-
-            Product.UpdatedDateTime = DateTime.Now;
-            Product.UpdatedUserId = User.Identity.Name;
+            
             _productRepository.Update(Product);
 
             try

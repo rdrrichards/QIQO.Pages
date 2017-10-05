@@ -5,6 +5,7 @@ using QIQO.Pages.Data.Entities;
 using QIQO.Pages.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace QIQO.Pages.Data.Repositories
 {
@@ -12,7 +13,7 @@ namespace QIQO.Pages.Data.Repositories
     {
         private readonly ProductContext _productContext;
 
-        public ProductRepository(ProductContext productContext) : base(productContext)
+        public ProductRepository(ProductContext productContext, IHttpContextAccessor httpContextAccessor) : base(productContext, httpContextAccessor)
         {
             _productContext = productContext;
         }
@@ -44,6 +45,8 @@ namespace QIQO.Pages.Data.Repositories
 
         public void Update(Product entity)
         {
+            entity.UpdatedDateTime = DateTime.Now;
+            entity.UpdatedUserId = User.Identity.Name;
             _productContext.Entry(entity).State = EntityState.Modified;
         }
     }

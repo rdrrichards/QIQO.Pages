@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QIQO.Pages.Data.Entities
 {
@@ -30,19 +31,29 @@ namespace QIQO.Pages.Data.Entities
         [Display(Name = "Product Image Path")]
         public string ProductImagePath { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
         public DateTime AddedDateTime { get; set; }
 
         [MaxLength(30)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
         public string AddedUserId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
         public DateTime UpdatedDateTime { get; set; }
 
         [MaxLength(30)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
         public string UpdatedUserId { get; set; }
 
         [Display(Name = "Product Type")]
         public ProductType ProductType { get; set; }
 
         [Display(Name = "Product Type")]
+        [Required]
         public Guid ProductTypeId { get; set; }
     }
 }

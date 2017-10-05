@@ -12,7 +12,7 @@ namespace QIQO.Pages.Data.Repositories
     {
         private readonly ProductContext _productContext;
 
-        public ProductTypeRepository(ProductContext productContext) : base(productContext)
+        public ProductTypeRepository(ProductContext productContext) : base(productContext, null)
         {
             _productContext = productContext;
         }

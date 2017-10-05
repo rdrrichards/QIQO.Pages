@@ -1,5 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading;
 
 namespace QIQO.Pages.Data.Repositories
 {
@@ -7,10 +11,14 @@ namespace QIQO.Pages.Data.Repositories
     {
         private bool disposed = false;
         private readonly DbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RepositoryBase(DbContext context)
+        protected IPrincipal User => _httpContextAccessor.HttpContext.User;
+
+        public RepositoryBase(DbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         protected virtual void Dispose(bool disposing)
