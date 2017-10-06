@@ -35,6 +35,10 @@ namespace QIQO.Pages.Data.Repositories
 
         public async Task InsertAsync(Product entity)
         {
+            entity.AddedDateTime = DateTime.Now;
+            entity.AddedUserId = User.Identity.Name;
+            entity.UpdatedDateTime = DateTime.Now;
+            entity.UpdatedUserId = User.Identity.Name;
             await _productContext.Products.AddAsync(entity);
         }
 
@@ -48,6 +52,11 @@ namespace QIQO.Pages.Data.Repositories
             entity.UpdatedDateTime = DateTime.Now;
             entity.UpdatedUserId = User.Identity.Name;
             _productContext.Entry(entity).State = EntityState.Modified;
+        }
+
+        public bool VerifyProductCode(string productCode)
+        {
+            return _productContext.Products.AnyAsync(pc => pc.ProductCode == productCode).Result;
         }
     }
 }

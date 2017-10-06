@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,6 +13,7 @@ namespace QIQO.Pages.Data.Entities
         [Required]
         [MaxLength(20, ErrorMessage ="The max length of a product code is 20 characters")]
         [Display(Name = "Product Code")]
+        // [Remote("ProductCodeExists", "", ErrorMessage = "The product code already exits")]
         public string ProductCode { get; set; }
 
         [Required]

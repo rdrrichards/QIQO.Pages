@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QIQO.Pages", "QIQO.Pages\QIQO.Pages.csproj", "{167B483E-C4AA-477D-8F0C-F8EC38E78FF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QIQO.Pages", "QIQO.Pages\QIQO.Pages.csproj", "{167B483E-C4AA-477D-8F0C-F8EC38E78FF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QIQO.Pages.Data", "QIQO.Pages.Data\QIQO.Pages.Data.csproj", "{4D81C362-5D7B-4FF3-97FF-1D5A601BC731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QIQO.Pages.Data", "QIQO.Pages.Data\QIQO.Pages.Data.csproj", "{4D81C362-5D7B-4FF3-97FF-1D5A601BC731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
