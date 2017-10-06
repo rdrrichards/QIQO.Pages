@@ -21,21 +21,22 @@ namespace QIQO.Pages.Pages
         {
             _productRepository = productRepository;
             _productTypeRepository = productTypeRepository;
+
+            ProductTypes = _productTypeRepository.GetAllAsync().Result
+                .Select(i => new SelectListItem { Value = i.ProductTypeId.ToString(), Text = i.ProductTypeName })
+                .ToList();
         }
 
         public void OnGetAsync()
         {
             Product = new Product
             {
-                ProductId = new Guid(),
+                ProductId = Guid.NewGuid(),
                 AddedDateTime = DateTime.Now,
                 AddedUserId = User.Identity.Name,
                 UpdatedDateTime = DateTime.Now,
                 UpdatedUserId = User.Identity.Name
             };
-            ProductTypes = _productTypeRepository.GetAllAsync().Result
-                .Select(i => new SelectListItem { Value = i.ProductTypeId.ToString(), Text = i.ProductTypeName })
-                .ToList();
         }
 
         [BindProperty]
