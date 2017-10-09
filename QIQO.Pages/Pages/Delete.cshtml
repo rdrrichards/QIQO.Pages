@@ -1,0 +1,32 @@
+﻿@page
+@model DeleteModel
+@{
+}
+<div>
+    <h2>
+        Delete @Model.Product.ProductName?
+    </h2>
+</div>
+
+<h3>Are you sure?</h3>
+
+<form method="post" class="form-horizontal">
+    
+    <input asp-for="Product.ProductId" type="hidden" />
+    <input asp-for="Product.AddedUserId" type="hidden" />
+    <input asp-for="Product.AddedDateTime" type="hidden" />
+    <input asp-for="Product.UpdatedUserId" type="hidden" />
+    <input asp-for="Product.UpdatedDateTime" type="hidden" />
+
+    <input asp-for="Product.ProductCode" type="hidden" />
+    <input asp-for="Product.ProductName" type="hidden" />
+    <input asp-for="Product.ProductDescShort" type="hidden" />
+    <input asp-for="Product.ProductDescLong" type="hidden" />
+    <input asp-for="Product.ProductImagePath" type="hidden" />
+    <input asp-for="Product.ProductTypeId" type="hidden" />
+    
+    <div>
+        <button class="btn btn-warning" type="submit">Yes</button> 
+        <button type="submit" class="btn btn-primary" asp-page="Index">Cancel</button>
+    </div>
+</form>

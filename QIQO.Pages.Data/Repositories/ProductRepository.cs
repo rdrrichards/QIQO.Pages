@@ -21,6 +21,7 @@ namespace QIQO.Pages.Data.Repositories
         {
             var product = await _productContext.Products.FindAsync(Id);
             _productContext.Products.Remove(product);
+            await _productContext.SaveChangesAsync();
         }
         
         public async Task<IEnumerable<Product>> GetAllAsync()

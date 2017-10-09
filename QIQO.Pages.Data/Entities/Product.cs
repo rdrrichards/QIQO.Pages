@@ -35,20 +35,24 @@ namespace QIQO.Pages.Data.Entities
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required]
+        [Display(Name = "Added Date")]
         public DateTime AddedDateTime { get; set; }
 
         [MaxLength(30)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required]
+        [Display(Name = "Added User Id")]
         public string AddedUserId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required]
+        [Display(Name = "Updated Date")]
         public DateTime UpdatedDateTime { get; set; }
 
         [MaxLength(30)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required]
+        [Display(Name = "Updated User Id")]
         public string UpdatedUserId { get; set; }
 
         [Display(Name = "Product Type")]
