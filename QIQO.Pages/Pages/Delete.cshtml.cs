@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using QIQO.Pages.Data.Entities;
 using QIQO.Pages.Data.Interfaces;
 using System;
@@ -35,9 +36,9 @@ namespace QIQO.Pages.Pages
             {
                 await _productRepository.SaveAsync();
             }
-            catch (Exception ex)
+            catch (DbUpdateConcurrencyException)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"Product {Product.ProductName} : {Product.ProductName} not found!");
             }
 
             return RedirectToPage("/Index");

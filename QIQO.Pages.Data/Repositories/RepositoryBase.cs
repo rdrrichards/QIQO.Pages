@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Security.Claims;
 using System.Security.Principal;
-using System.Threading;
 
 namespace QIQO.Pages.Data.Repositories
 {
