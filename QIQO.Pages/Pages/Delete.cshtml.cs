@@ -31,16 +31,6 @@ namespace QIQO.Pages.Pages
                 return Page();
 
             await _productRepository.DeleteAsync(Product.ProductId);
-
-            try
-            {
-                await _productRepository.SaveAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw new Exception($"Product {Product.ProductName} : {Product.ProductName} not found!");
-            }
-
             return RedirectToPage("/Index");
         }
     }
