@@ -6,6 +6,8 @@ using QIQO.Pages.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using QIQO.Pages.Data.Interfaces;
 using QIQO.Pages.Data.Repositories;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace QIQO.Pages
 {
@@ -24,6 +26,7 @@ namespace QIQO.Pages
             services.AddDbContext<ProductContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductManagement")));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
         }
 
